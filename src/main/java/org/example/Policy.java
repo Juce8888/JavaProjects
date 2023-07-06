@@ -13,19 +13,25 @@ public class Policy {
     private float nonRetiredInState;
     private float nonRetiredOutState;
 
+    // Default Constructor
     Policy() {
-        this.userName = "John Doe";
-        this.birthYear = 0000;
-        this.residency = true;
-        this.retirementStatus = 'Y';
+        localDate = getLocalDate();
+        userName = "John Doe";
+        birthYear = 0000;
+        residency = true;
+        retirementStatus = 'Y';
     }
 
+    // Parameterised Constructor
     Policy(LocalDate localDate, String userName, int birthYear, boolean residency, char retirementStatus) {
-
+        this.localDate = localDate;
+        this.userName = userName;
+        this.birthYear = birthYear;
+        this.residency = residency;
+        this.retirementStatus = retirementStatus;
     }
 
     // Getters & Setters
-
 
     public LocalDate getLocalDate() {
         return localDate;
@@ -69,6 +75,8 @@ public class Policy {
 
     public float getRetireePremium() {
         // TODO: Write math code in here
+        LocalDate birthInput = localDate.minusYears(birthYear);
+        float retireePremium = birthInput * RETIREE_PREMIUM;
         return retireePremium;
     }
 
