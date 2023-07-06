@@ -73,5 +73,6 @@ public class Main {
         } else {
             return Boolean.valueOf(residencyInput);
         }
+
     }
 }
